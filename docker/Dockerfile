@@ -1,6 +1,6 @@
 FROM nvidia/cuda:12.1.0-runtime-ubuntu20.04
-LABEL maintainer="Hugging Face"
-LABEL repository="diffusers"
+LABEL maintainer="G2D2 Authors"
+LABEL repository="g2d2-public"
 
 ENV DEBIAN_FRONTEND=noninteractive
 

@@ -7,9 +7,6 @@ This product includes software developed by the following project:
   (e.g., DiffusionPipeline, VQDiffusionScheduler, Transformer2DModel, VQModel usage)
   and derived pipelines under `pipelines/`.
 
-Where possible, original copyright and license headers have been retained
-at the top of adapted source files (e.g., `pipelines/pipline_inv_prob_anc_vq_diffusion.py`).
-
 Note: Some tools referenced in the README (e.g., BKSE) are optional and not distributed
 with this repository. If you obtain and use them separately, consult their respective licenses.
 
