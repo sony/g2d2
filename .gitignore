@@ -1,0 +1,11 @@
+.vscode/
+__pycache__/
+**/__pycache__/
+dataset/*
+*.log
+*.pyc
+output/
+*.csv
+!dataset/ffhq_val_1k/
+!dataset/ffhq_val_1k/image_captions_ffhq_val_1k.csv
+!dataset/imagenet1000_clsidx_to_labels.txt

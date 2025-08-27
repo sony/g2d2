@@ -1,0 +1,28 @@
+output_dir:
+  "output/"
+
+diffusion:
+  num_inference_steps: 100
+  guidance_scale: 5.0
+  truncation_rate: 1.0
+
+task:
+  prompt: "A high quality photo"
+  forward_type: "gaussian_blur"
+  sigma_mes_noise: 0.05
+  coef_forget: 0.4
+  lr_optim_rlc: 0.5
+  num_itr_optim_for_rlc: 0
+  # lr_optim_embed: 0.0001
+  # num_itr_optim_embed: 0
+  # token_update_rate: 0.5
+  num_itr_optim_model_output_kl: 30
+  lr_optim_model_output_kl: 1.0
+  temperature_optim_model_output_kl: 1.0
+  coef_kl: 0.0003
+  save_intermed_figs: True
+  type_posterior: "decouple_random"
+  t_start_guidance: 100
+  guidance_scale: 5.0
+  save_loss_history: True
+  
