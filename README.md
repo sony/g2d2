@@ -45,13 +45,13 @@ Use the provided Dockerfile to prepare a reproducible environment (recommended).
 Build the image from the repository root:
 
 ```
-docker build -f docker/Dockerfile -t invprob-ldm:latest .
+docker build -f docker/Dockerfile -t g2d2:latest .
 ```
 
 Run the container with GPU access and mount the repository:
 
 ```
-docker run --gpus all -v "$(pwd)":/workspace -w /workspace -it invprob-ldm:latest /bin/bash
+docker run --gpus all -v "$(pwd)":/workspace -w /workspace -it g2d2:latest /bin/bash
 ```
 
 (Optional) Manually clone BKSE if you need blur-kernel-space-exploring tools or models:
@@ -132,7 +132,7 @@ How to choose:
 - Put `experiment_preset: <one_of_above>` into your config YAML (e.g., under `configs/`).
 - Dataset is determined by priority: CLI `--dataset` > config `dataset` > preset default.
 
-Example `configs/super_resolution_kl.yaml` addition:
+Example `configs/super_resolution_kl_all.yaml` addition:
 
 ```
 output_dir: "output/"
@@ -146,13 +146,13 @@ experiment_preset: sr_imagenet
 Basic invocation (GPU 0):
 
 ```
-python main.py --task_config configs/super_resolution_kl.yaml --gpu 0
+python main.py --task_config configs/super_resolution_kl_all.yaml --gpu 0
 ```
 
 - Override dataset explicitly if needed:
 
 ```
-python main.py --task_config configs/super_resolution_kl.yaml --dataset ImageNet --gpu 0
+python main.py --task_config configs/super_resolution_kl_all.yaml --dataset ImageNet --gpu 0
 ```
 
 Outputs will be written to:
@@ -166,28 +166,28 @@ output/<config_basename>_<UTC_TIMESTAMP>/<abbrev_params>/
 
 ### Examples by preset
 
-- Gaussian Deblur on ImageNet (uses `configs/gaussian_deblur_kl.yaml`, set `experiment_preset: gblur_imagenet` in the YAML):
+- Gaussian Deblur on ImageNet (uses `configs/gaussian_deblur_kl_all.yaml`, set `experiment_preset: gblur_imagenet` in the YAML):
 
 ```bash
-python main.py --task_config configs/gaussian_deblur_kl.yaml --dataset ImageNet --gpu 0
+python main.py --task_config configs/gaussian_deblur_kl_all.yaml --dataset ImageNet --gpu 0
 ```
 
-- Super Resolution on ImageNet (uses `configs/super_resolution_kl.yaml`, set `experiment_preset: sr_imagenet`):
+- Super Resolution on ImageNet (uses `configs/super_resolution_kl_all.yaml`, set `experiment_preset: sr_imagenet`):
 
 ```bash
-python main.py --task_config configs/super_resolution_kl.yaml --dataset ImageNet --gpu 0
+python main.py --task_config configs/super_resolution_kl_all.yaml --dataset ImageNet --gpu 0
 ```
 
-- Gaussian Deblur on FFHQ (uses `configs/gaussian_deblur_kl.yaml`, set `experiment_preset: gblur_ffhq`):
+- Gaussian Deblur on FFHQ (uses `configs/gaussian_deblur_kl_all.yaml`, set `experiment_preset: gblur_ffhq`):
 
 ```bash
-python main.py --task_config configs/gaussian_deblur_kl.yaml --dataset FFHQ --gpu 0
+python main.py --task_config configs/gaussian_deblur_kl_all.yaml --dataset FFHQ --gpu 0
 ```
 
-- Super Resolution on FFHQ (uses `configs/super_resolution_kl.yaml`, set `experiment_preset: sr_ffhq`):
+- Super Resolution on FFHQ (uses `configs/super_resolution_kl_all.yaml`, set `experiment_preset: sr_ffhq`):
 
 ```bash
-python main.py --task_config configs/super_resolution_kl.yaml --dataset FFHQ --gpu 0
+python main.py --task_config configs/super_resolution_kl_all.yaml --dataset FFHQ --gpu 0
 ```
 
 Notes

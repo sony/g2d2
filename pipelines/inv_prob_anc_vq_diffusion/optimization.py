@@ -39,9 +39,6 @@ def optimize_model_output_kl(vqvae, generator, func_loss_likelihood, vqvae_dict,
     likelihood_loss_progress = []
     kl_loss_progress = []
 
-    print("BEFORE OPTIMIZATION")
-    print(f"Prior Logit {model_output[0].max(dim=0).values.mean():.4f}")
-
     with torch.enable_grad():
         model_output_prior = model_output.clone().detach()
         
@@ -95,8 +92,5 @@ def optimize_model_output_kl(vqvae, generator, func_loss_likelihood, vqvae_dict,
             loss_history_lists[1].append(likelihood_loss_progress)
             loss_history_lists[2].append(kl_loss_progress)
     
-    print("AFTER OPTIMIZATION")
-    print(f"Optimized Logit {model_output[0].max(dim=0).values.mean():.4f}")
-
     return model_output, vqvae_dict
 

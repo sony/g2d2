@@ -39,16 +39,12 @@ from .utils import truncate, decode_image_from_sample, decode_image_from_gumbel_
 
 from ..operators import (
     GaussianBlurOperator,
-    InpaintingOperator,
-    RandomInpaintingOperator,
     SuperResolutionOperator,
-    FaceIDLoss,
     NonlinearBlurOperator,
 )
 
 from util.img_utils import Blurkernel
 from util.resizer import Resizer
-from util.arcface.model import IDLoss
 import util.plot_utils as plot_utils
 
 from PIL import Image
